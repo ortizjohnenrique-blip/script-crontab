@@ -1,0 +1,12 @@
+~/update-scrip-cron-tak-debian
+mkdir script
+cd script
+mkdir script_actualizacion
+nano script.sh
+     #!/bin/bash
+     echo "actualizacion ejecutada:$(date)"
+     sudo apt update && sudo apt upgrade -y
+sudo chmod +x scrip_actualizacion
+./script.sh
+crontab -e
+      0 0 * * * /bin/sh ~/update-scrpt-cron-task-debian/script/script_actualizacion/scrip.sh >> /var/log/actualizacion-servidor.log 2>> /var/actualizacion-servidor error.log
